@@ -1,8 +1,10 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
+import { act } from "react";
 
 interface Todo {
   name: string;
   text: string;
+  id: number;
 }
 
 interface TodoState {
@@ -23,6 +25,11 @@ export const todoSlice = createSlice({
         text: action.payload,
       };
       state.todos.push(todo);
+    },
+    removeTodo: (state, action) => {
+      state.todos = state.todos.filter((todo) => {
+        todo.id !== action.payload;
+      });
     },
   },
 });
