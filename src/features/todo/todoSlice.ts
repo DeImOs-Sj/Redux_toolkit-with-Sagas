@@ -12,7 +12,7 @@ interface TodoState {
 }
 
 const initialState: TodoState = {
-  todos: [],
+  todos: [{ id: 1, text: "hello world" }],
 };
 
 export const todoSlice = createSlice({
@@ -33,3 +33,6 @@ export const todoSlice = createSlice({
     },
   },
 });
+
+export const { addTodo, removeTodo } = todoSlice.actions;
+export default todoSlice.reducer;
